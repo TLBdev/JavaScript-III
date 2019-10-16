@@ -11,10 +11,10 @@
 
 // Principle 1
 
-//appears to apply to whatever you js is 'working in' at the time. notice the first this displays an empty obj, while the second displays the window obj (basically all the stuff javascript uses to run). 
+//'This' appears to apply to whatever you are 'working in' at the time. so if you aren't working in anything it displays the window obj (basically all the stuff javascript uses to run). 
 
 // code example for Window Binding
-// console.log(this)
+
 function add(a, b) {
     console.log(this);
     return a + b;
