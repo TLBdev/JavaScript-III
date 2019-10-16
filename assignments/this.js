@@ -11,16 +11,48 @@
 
 // Principle 1
 
+//'This' appears to apply to whatever you are 'working in' at the time. so if you aren't working in anything it displays the window obj (basically all the stuff javascript uses to run). 
+
 // code example for Window Binding
 
+function add(a, b) {
+    console.log(this);
+    return a + b;
+  }
+//   add(3, 4);
+  
 // Principle 2
 
+//When 'this' is used inside of an object it automatically refers to the object it is called on (unless explicitly bound to something else)
+
 // code example for Implicit Binding
+let dog = {
+    food: 'cats',
+    favFood: function(){console.log(`My favorite food is ${this.food}`)}
+}
+//dog.favFood()
 
 // Principle 3
 
+//When using the 'new keyword', 'this' refers to the new object that is being created. It is functionally the same as principle 2
+
 // code example for New Binding
+function Constructor(name){
+    this.name = name,
+    
+    this.print = function(){
+        console.log(this)
+        console.log(this.name)
+    }
+}
+const Tony = new Constructor('Tony')
+Tony.print()
 
 // Principle 4
 
+// uses .apply() or .call() to override the implicit binding and manually set the target of the this keyword.
+
 // code example for Explicit Binding
+
+const Pupper = new Constructor('Pupper')
+Tony.print.apply(Pupper)
